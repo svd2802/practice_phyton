@@ -4,7 +4,7 @@ from warrior import Warrior
 
 
 temp = [Warrior('Abe'), Warrior('Bjorn'), Warrior('Sigmair')]
-
+temp.count()
 while True:
     if len(temp) > 1:
         duel = random.sample(temp, 2)
