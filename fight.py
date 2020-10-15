@@ -2,10 +2,8 @@ import sys
 import random
 from warrior import Warrior
 
-a = Warrior('Abe')
-b = Warrior('Bjorn')
-c = Warrior('Sigmair')
-temp = [a,b,c]
+
+temp = [Warrior('Abe'), Warrior('Bjorn'), Warrior('Sigmair')]
 
 while True:
     if len(temp) > 1:
