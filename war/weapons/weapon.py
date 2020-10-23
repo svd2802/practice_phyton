@@ -1,16 +1,17 @@
+from __future__ import annotations
 import sys
-sys.path.append('C:/Users/narut/Desktop/Практикум по программированию/practice_python/war')
+sys.path.append('C:/Users/narut/practice_python/war')
 from exceptions import NotRealizedMethodError
 
 
 class Weapon:
     def __init__(self, name='Stick', damage=1):
-        self.__name = name
-        self.__damage = damage
+        self._name = name
+        self._damage = damage
 
     @property
     def name(self):
-        return self.__name
+        return self._name
 
     @property
     def damage(self):
@@ -28,3 +29,6 @@ class Weapon:
             return self
         else:
             return other
+
+    def __str__(self):
+        return "Название: " + str(self.name) + "; Урон: " + str(self.damage)

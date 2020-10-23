@@ -4,18 +4,18 @@ from weapon import Weapon
 
 
 class Bow(Weapon):
-    def __init__(self, name='Bow', damage=1, accuracy=1):
+    def __init__(self, name='Bow', damage=2, accuracy=10):
+        Weapon.__init__(self, name, damage)
         self.__accuracy = accuracy
-        super.__init__(name, damage)
 
     @property
     def damage(self):
-        return self.accuracy * self.damage
+        return self.__accuracy * int(self._damage)
 
     @damage.setter
     def damage(self, value):
         if value > 0:
-            self.__damage = value
+            self._damage = value
         else:
             print('Недопустимое значение урона!')
 
@@ -25,13 +25,15 @@ class Bow(Weapon):
 
     @accuracy.setter
     def accuracy(self, value):
-        if value > 0:
+        if value > 0 and value <= 100:
             self.__accuracy = value
+        elif value > 100:
+            self.__accuracy = 100
         else:
             print('Недопустимое значение точности!')
 
     def attack(self):
-        damage = self.accuracy * self.damage
+        damage = self.damage
         chance = random.randint(self.accuracy, 100)
         if chance > 60:
             return damage
