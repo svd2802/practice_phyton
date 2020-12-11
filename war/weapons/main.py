@@ -1,11 +1,11 @@
-from weapon import Weapon
+#from weapon import Weapon
 from sword import Sword
 from bow import Bow
 
 def main():
     #stick = Weapon()
     # throws new excetion
-    #print(stick.name, stick.damage
+    #print(stick.name, stick.damage)
     #stick.attack(None)
     common_sword = Sword()
     #print(common_sword.pro)

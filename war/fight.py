@@ -1,10 +1,18 @@
 import random
 
 from warrior import Warrior
+from armor.armor import Armor
+from weapons.weapon import Weapon
+from weapons.sword import Sword
+from weapons.bow import Bow
+
 
 
 def main():
-    temp = [Warrior('Abe'), Warrior('Bjorn'), Warrior('Sigmair')]
+    stick = Weapon()
+    common_sword = Sword()
+    temp = [Warrior('Abe', weapons=[Sword(), Sword()]), Warrior('Bjorn', weapons=[Bow(), Sword()]), Warrior('Sigmair', weapons=[Sword(), Bow()])]
+
     while True:
         if len(temp) > 1:
             duel = random.sample(temp, 2)
