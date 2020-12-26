@@ -1,6 +1,6 @@
 import random
 
-from weapon import Weapon
+from weapons.weapon import Weapon
 
 
 class Bow(Weapon):

@@ -41,5 +41,11 @@ class Weapon:
         else:
             return False
 
+    def __lt__(self, other: Weapon):
+        if self.damage < other.damage:
+            return True
+        else:
+            return False
+
     def __str__(self):
         return "Название: " + str(self.name) + "; Урон: " + str(self.damage)

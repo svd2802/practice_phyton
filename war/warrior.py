@@ -21,18 +21,22 @@ class Warrior:
             print(str(self.name) + " погиб.")
 
     def attack(self, target):
-        self.weapons.sort()
+        if len(self.weapons) != 0:
+            self.weapons.sort(reverse=True)
         if self.health == 0:
             return print(str(self.name) + " не может атаковать в таком состоянии.")
-        print(str(self.name) + " атакует война по имени " + str(target.name))
         if len(self.weapons) == 0:
+            print(str(self.name) + " атакует война " + str(target.name) + " кулаками.")
             target.get_attack(self.damage)
         else:
+            print(str(self.name) + " атакует война " + str(target.name) + " с помощью " + (self.weapons[0].name))
             weapon_damage = self.weapons[0].attack()
             if weapon_damage != 'Промах':
                 target.get_attack(weapon_damage)
+            else:
+                print(str(self.name) + " промахивается.")
         if target.health == 0:
-            print(str(self) + "; празднует победу над " + str(target.name))
+            print(str(self) + " празднует победу над " + str(target.name))
             self.get_weapons(target.weapons)
             del target
 
@@ -46,10 +50,11 @@ class Warrior:
 
     def get_weapons(self, weapons):
         other_weapons = copy.deepcopy(weapons)
-        self.weapons.append(other_weapons)
+        for i in other_weapons:
+            self.weapons.append(i)
         
     def get_attack(self, damage):
-        if self.armor.durability != 0:
+        if self.armor is not None and self.armor.durability != 0:
             self.armor.get_attack(damage)
         else:
             self.get_damage_without_armor(damage)
@@ -58,4 +63,7 @@ class Warrior:
         print("Valhalla, " + str(self.name) + " is coming.")
 
     def __str__(self):
-        return "Великий воин " + str(self.name) + "; Здоровье: " + str(self.health) + "; Урон: " + str(self.damage) + "; Оружие: " + str(self.weapons)
+        weapons_str = ""
+        for i in self.weapons:
+            weapons_str += str(i) + "; "
+        return "Великий воин " + str(self.name) + "; Здоровье: " + str(self.health) + "; Урон: " + str(self.damage) + "; Оружие: " + weapons_str

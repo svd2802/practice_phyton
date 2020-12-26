@@ -7,11 +7,11 @@ from weapons.sword import Sword
 from weapons.bow import Bow
 
 
-
 def main():
-    stick = Weapon()
-    common_sword = Sword()
-    temp = [Warrior('Abe', weapons=[Sword(), Sword()]), Warrior('Bjorn', weapons=[Bow(), Sword()]), Warrior('Sigmair', weapons=[Sword(), Bow()])]
+    # stick = Weapon()
+    # common_sword = Sword()
+    temp = [Warrior('Abe', weapons=[Sword(), Sword()]), Warrior('Bjorn', weapons=[
+        Bow(), Sword()]), Warrior('Sigmair', weapons=[Sword(), Bow()])]
 
     while True:
         if len(temp) > 1:

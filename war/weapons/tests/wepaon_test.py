@@ -1,5 +1,5 @@
 import unittest
-from weapon import Weapon
+from weapons.weapon import Weapon
 import sys
 sys.path.append('C:/Users/narut/practice_python/war')
 from exceptions import NotRealizedMethodError
@@ -17,7 +17,7 @@ class TestWeaponMethods(unittest.TestCase):
 
     def test_attack(self):
         with self.assertRaises(NotRealizedMethodError):
-            self.weapon.attack(None)
+            self.weapon.attack()
 
 
 

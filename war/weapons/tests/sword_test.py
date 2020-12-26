@@ -1,4 +1,5 @@
 import unittest
+print(dir())
 from sword import Sword
 
 
@@ -32,7 +33,7 @@ class TestSwordMethods(unittest.TestCase):
 
     def test_le(self):
         b = Sword(damage=20)
-        self.assertEqual(self.sword <= b, b)
+        self.assertEqual(self.sword <= b, True)
 
     def test_str(self):
         string = 'Название: Sword; Урон: 10'

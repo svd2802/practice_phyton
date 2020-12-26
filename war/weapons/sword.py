@@ -1,6 +1,7 @@
 import random
 
-from weapon import Weapon
+from weapons.weapon import Weapon
+print(dir())
 
 
 class Sword(Weapon):
@@ -27,7 +28,7 @@ class Sword(Weapon):
         self._durability *= 0.9
 
     def attack(self):
-        damage = self._damage * self._durability
+        damage = round(self._damage * self._durability)
         wearout_chance = random.randint(0, 1)
         if wearout_chance == 1:
             self.wearout()
