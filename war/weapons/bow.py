@@ -4,8 +4,8 @@ from weapons.weapon import Weapon
 
 
 class Bow(Weapon):
-    def __init__(self, name='Bow', damage=2, accuracy=10):
-        Weapon.__init__(self, name, damage)
+    def __init__(self, name='Bow', damage=2, accuracy=10, effects=None):
+        Weapon.__init__(self, name, damage, [effects])
         self.__accuracy = accuracy
 
     @property

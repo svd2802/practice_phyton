@@ -1,17 +1,19 @@
 import random
 
-from warrior import Warrior
 from armor.armor import Armor
-from weapons.weapon import Weapon
-from weapons.sword import Sword
+from effects.weapon_effect import WeaponEffect
+from effects.armor_effect import ArmorEffect
+from warrior import Warrior
 from weapons.bow import Bow
+from weapons.sword import Sword
+from weapons.weapon import Weapon
 
 
 def main():
-    # stick = Weapon()
-    # common_sword = Sword()
-    temp = [Warrior('Abe', weapons=[Sword(), Sword()]), Warrior('Bjorn', weapons=[
-        Bow(), Sword()]), Warrior('Sigmair', weapons=[Sword(), Bow()])]
+    armor_effect=[ArmorEffect('frost'), ArmorEffect('fire')]
+    weapon_effect=[WeaponEffect('frost', 20, 2), WeaponEffect('fire', 1, 2)]
+    temp = [Warrior('Abe', health=300, weapons=[Sword(name='Frost Sword', effects=weapon_effect[0]), Sword()]), Warrior('Bjorn', health=300, weapons=[
+        Sword()], armor=Armor(effects= armor_effect)), Warrior('Sigmair', health=300, weapons=[Sword(), Bow(effects=weapon_effect[1])])]
 
     while True:
         if len(temp) > 1:

@@ -1,9 +1,7 @@
 from __future__ import annotations
-import sys
-sys.path.append('C:/Users/narut/practice_python/war')
-from exceptions import NotRealizedMethodError
-#from effects.weapon_effects import WeaponEffect
 
+from effects.weapon_effect import WeaponEffect
+from exceptions import NotRealizedMethodError
 
 
 class Weapon:
@@ -48,4 +46,11 @@ class Weapon:
             return False
 
     def __str__(self):
-        return "Название: " + str(self.name) + "; Урон: " + str(self.damage)
+        if self.effects is not None and len(self.effects) > 0:
+            effects_str = ' '
+            for i in self.effects:
+                if i is not None:
+                    effects_str += i.name + "; "
+            return "Название: " + str(self.name) + "; Урон: " + str(round(self.damage, 2)) + "; Эффекты: " + effects_str
+        else:
+            return "Название: " + str(self.name) + "; Урон: " + str(round(self.damage, 2))

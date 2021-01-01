@@ -1,14 +1,13 @@
 import random
 
 from weapons.weapon import Weapon
-print(dir())
 
 
 class Sword(Weapon):
-    def __init__(self, name='Sword', damage=10):
-        Weapon.__init__(self, name, damage)
+    def __init__(self, effects=None, name='Sword', damage=10):
+        Weapon.__init__(self, name, damage, [effects])
         self._durability = 1
-        
+
     @property
     def damage(self):
         return self.durability * int(self._damage)
@@ -25,7 +24,7 @@ class Sword(Weapon):
         return self._durability
 
     def wearout(self):
-        self._durability *= 0.9
+        self._durability = round(self.durability * 0.9, 2)
 
     def attack(self):
         damage = round(self._damage * self._durability)

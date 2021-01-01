@@ -1,10 +1,11 @@
 import unittest
 from armor import Armor
+from effects.armor_effect import ArmorEffect
 
 
 class TestArmorMethods(unittest.TestCase):
     def setUp(self):
-        self.armor = Armor()
+        self.armor = Armor('name', 10, [ArmorEffect('frost', 10)])
 
     def test_get_name(self):
         self.armor = Armor('name')
