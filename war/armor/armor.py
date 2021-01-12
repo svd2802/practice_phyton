@@ -21,12 +21,15 @@ class Armor:
 
     def get_attack(self, damage, effects):
         self._durability -= damage
+        print(f"Броня поглотила {damage} урона.")
+        # self.get_gotten_effects(effects)
         if self.durability <= 0:
             self._durability = 0
             del self
 
     def get_gotten_effects(self, effects):
         # проверяем резисты и формируем list лист полученных дебаффов
+        # print("get_gotten_effects")
         result_effects = []
         if effects is not None and self.effects is not None:
             for i in effects:

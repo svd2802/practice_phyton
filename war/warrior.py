@@ -38,8 +38,8 @@ class Warrior:
             else:
                 print(str(self.name) + " промахивается.")
         if target.health == 0:
-            print(str(self) + " празднует победу над " + str(target.name))
             self.get_weapons(target.weapons)
+            print(str(self) + "\n\t\t\tпразднует победу над " + str(target.name))
             del target
 
     def get_weapons(self, weapons):
@@ -48,15 +48,17 @@ class Warrior:
 
     def get_attack(self, damage, effects):
         if self.armor is not None and self.armor.durability > 0:
+            # получить атаку по броне
             gotten_effects = self.armor.get_gotten_effects(effects)
             self.armor.get_attack(damage, effects)
             if len(gotten_effects) > 0:
                 for i in gotten_effects:
                     self.effects.update({i: i.round})
         else:
+            # получить атаку по лицу
             self.get_damage_without_armor(damage)
+            # получить эффекты и выбрать макс. длительность эффекта для контроля состояния
             debuff_duration = []
-            print(self.effects)
             for i in effects:
                 if i is not None:
                     self.effects.update({i: i.round})
@@ -64,6 +66,11 @@ class Warrior:
             if len(debuff_duration) > 0:
                 debuff_duration.sort()
                 self.effects.update({'normal': debuff_duration[-1]})
+            """ for i in self.effects.items():
+                if type(i[0]) is str:
+                    print(i)
+                else:
+                    print(str(i[0])) """
 
     def get_damage_without_armor(self, damage):
         if self.health > 0:
@@ -121,7 +128,7 @@ class Warrior:
     def __str__(self):
         weapons_str = ""
         for i in self.weapons:
-            weapons_str += str(i) + "; "
+            weapons_str += str(i)
         effects_str = " "
         for item in self.effects.items():
             if item[0] != 'normal':

@@ -10,10 +10,10 @@ from weapons.weapon import Weapon
 
 
 def main():
-    armor_effect=[ArmorEffect('frost'), ArmorEffect('fire')]
-    weapon_effect=[WeaponEffect('frost', 20, 2), WeaponEffect('fire', 1, 2)]
+    armor_effect = [ArmorEffect('frost'), ArmorEffect('fire')]
+    weapon_effect = [WeaponEffect('frost', 20, 2), WeaponEffect('fire', 1, 2)]
     temp = [Warrior('Abe', health=300, weapons=[Sword(name='Frost Sword', effects=weapon_effect[0]), Sword()]), Warrior('Bjorn', health=300, weapons=[
-        Sword()], armor=Armor(effects= armor_effect)), Warrior('Sigmair', health=300, weapons=[Sword(), Bow(effects=weapon_effect[1])])]
+        Sword()], armor=Armor(effects=armor_effect)), Warrior('Sigmair', health=300, weapons=[Sword(), Bow(effects=weapon_effect[1])])]
 
     while True:
         if len(temp) > 1:

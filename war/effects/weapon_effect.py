@@ -25,4 +25,4 @@ class WeaponEffect(Effect):
             self.__round = value
 
     def __str__(self):
-        return Effect.__str__(self) + ", действует {} раундов.".format(self.__round)
+        return Effect.__str__(self) + ", действует {} раундов".format(self.__round)

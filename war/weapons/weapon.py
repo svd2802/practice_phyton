@@ -46,11 +46,12 @@ class Weapon:
             return False
 
     def __str__(self):
+        effects_str = ''
         if self.effects is not None and len(self.effects) > 0:
-            effects_str = ' '
             for i in self.effects:
-                if i is not None:
-                    effects_str += i.name + "; "
-            return "Название: " + str(self.name) + "; Урон: " + str(round(self.damage, 2)) + "; Эффекты: " + effects_str
+                if i is not None and i.name != "":
+                    effects_str += str(i) + "; "
+        if effects_str == '':
+            return "\nНазвание: " + str(self.name) + "; Урон: " + str(round(self.damage, 2)) + ";"
         else:
-            return "Название: " + str(self.name) + "; Урон: " + str(round(self.damage, 2))
+            return "\nНазвание: " + str(self.name) + "; Урон: " + str(round(self.damage, 2)) + "; Эффекты: " + effects_str
